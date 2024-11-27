@@ -1,0 +1,3 @@
+adityaA -- 2024-11-26 11:47: 
+Added explanation of how each component relates to the others and component map visualizing relationships between components in design doc.
+Requested card for coinflip API
