@@ -1,7 +1,8 @@
 # Api Keys
 ### Deck of Cards API
 - No key required, no qouta either
-
+- Will be using this API to create Blackjack game
+- No account required
 
 ###Coin Flip API:
 
