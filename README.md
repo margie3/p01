@@ -1,7 +1,6 @@
-<h1>CasinoSim </h1>
+<h1>CasinoSim by YACK</h1>
 
-<h3>YACK Roster</h3>
-
+<h3>Roster</h3>
 <b>Margie Cao</b> - API implementation <br>
 <b>Aditya Anand</b> - Flask, making routes and different functionalities for each <br>
 <b>Stella Yampolsky</b> - SQLite3, working with databases <br>
