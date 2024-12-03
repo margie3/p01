@@ -1,10 +1,15 @@
-adityaA -- 2024-11-26 11:47: 
-Added explanation of how each component relates to the others and component map visualizing relationships between components in design doc.
+adityaA -- 2024-11-26 11:47
+Added explanation of how each component relates to the others and component map visualizing relationships between components in design doc
 Requested card for coinflip API
 
-
-adityaA -- 2024-12-02 10:22: 
+adityaA -- 2024-12-02 22:22
 Digitized site map, reviewed site map to ensure connections are valid and not designated for change
 
-suhanaK -- 2024-12-03 8:30:
-Explained use of APIs and Tailwind as Front End Framework. Improved flow of components.
+suhanaK -- 2024-12-03 8:30
+Explained use of APIs and Tailwind as Front End Framework
+Improved flow of components
+
+margieC -- 2024-12-03 11:01
+Updated README.md
+Expanded on our API usage and the quotas for each
+Added tables to illustrate the tables in our database
