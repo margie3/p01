@@ -1,10 +1,14 @@
 <h1>CasinoSim by YACK</h1>
 
+---
+
 <h3>Roster</h3>
 <b>Margie Cao</b> - API implementation <br>
 <b>Aditya Anand</b> - Flask, making routes and different functionalities for each <br>
 <b>Stella Yampolsky</b> - SQLite3, working with databases <br>
 <b>Suhana Kumar</b> - Tailwind FEF, HTML & CSS <br>
+
+---
 
 <h3>Project Description</h3>
 <p>Our website will serve as a casino simulator. <br>  
@@ -17,10 +21,14 @@
   - poker <br>
   - dice rolling <br>
 
+---
+
 <h3>Install Guide</h3> </p>
 <p> Clone the repository in the terminal, run: <br> 
   $ git clone git@github.com:margie3/p01.git <br>
 </p>
+
+---
 
 <h3>Launch Codes</h3>
 <p> 
