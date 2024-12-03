@@ -11,8 +11,8 @@
 ---
 
 <h3>Project Description</h3>
-<p>Our website will serve as a casino simulator. <br>  
-<b></b>Features</b> <br>
+<p>Our website serves as a casino simulator! Users are able to gamble their currency away or win big through a multitude of games. Think you have the skills to win? The luck to? Come play! <br><s>and if you've hit rock bottom, log in tomorrow for your daily paycheck!</s><br>  
+<br><b>Features</b> <br>
 - Users will be able to create accounts and log in <br>
 - Users can view leaderboards and see their personal bests <br>
 - Users can play various different games to boost their score and get money: <br>
