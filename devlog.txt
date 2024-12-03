@@ -13,3 +13,6 @@ margieC -- 2024-12-03 11:01
 Updated README.md
 Expanded on our API usage and the quotas for each
 Added tables to illustrate the tables in our database
+
+adityaA -- 2024-12-03 11:47
+Created directory and readme for keys, added design doc pdf, discussed uses of API and vision for project with team
