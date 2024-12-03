@@ -5,3 +5,6 @@ Requested card for coinflip API
 
 adityaA -- 2024-12-02 10:22: 
 Digitized site map, reviewed site map to ensure connections are valid and not designated for change
+
+suhanaK -- 2024-12-03 8:30:
+Explained use of APIs and Tailwind as Front End Framework. Improved flow of components.
