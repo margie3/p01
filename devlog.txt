@@ -16,3 +16,6 @@ Added tables to illustrate the tables in our database
 
 adityaA -- 2024-12-03 11:47
 Created directory and readme for keys, added design doc pdf, discussed uses of API and vision for project with team, added information for coin flip api
+
+stellaY -- 2024-12-04 03:22
+Updated README.md
