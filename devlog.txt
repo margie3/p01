@@ -19,3 +19,6 @@ Created directory and readme for keys, added design doc pdf, discussed uses of A
 
 stellaY -- 2024-12-04 03:22
 Updated README.md
+
+adityaA -- 2024-12-04 11:47
+Checked placement of requirements.txt info and activate virtual environment info, reviewed install guide and launch codes, started planning python
