@@ -24,26 +24,27 @@
 ---
 
 <h3>Install Guide</h3> </p>
-<p> Clone the repository in the terminal, run: <br> 
-  $ git clone git@github.com:margie3/p01.git <br>
-</p>
+<p> 1. Clone the repository in the terminal, run: <br> 
+  $ git clone git@github.com:margie3/p01.git <br> 
 
+** steps 2 and 3 are not required if you are comfortable with messing with your primary python installation and know your system well enough <br> <br>
+    2. Make a virtual environment, run: <br>
+  $ python3 -m venv [name] <br> <br>
+    3. Activate the virtual environment, run: <br>
+  $ . [name]/bin/activate <br> <br>
+    4. Go into the cloned repository, run: <br> 
+  $ cd /PATH/TO/p01 <br> <br>
+    5. Install the required packages in your cloned repository, run: <br>
+  $ pip install -r requirements.txt <br> <br>
+      
 ---
 
 <h3>Launch Codes</h3>
-<p> 
-    1. Make a virtual environment, run: <br>
-  $ python3 -m venv [name] <br> <br>
-    2. Activate the virtual environment, run: <br>
-  $ . [name]/bin/activate <br> <br>
-    3. Go into the cloned repository, run: <br> 
-  $ cd /PATH/TO/p01 <br> <br>
-    4. Install the required packages in your cloned repository, run: <br>
-  $ pip install -r requirements.txt <br> <br>
-    5. Launch the application, run: <br> 
+    1. In the cloned repository, run: <br> 
   $ python3 app/__init__.py <br> <br>
-    6. Open the local host link: <br>
+    2. Open the local host link: <br>
   http://127.0.0.1:5000/
-
+<br>
+<br>
   When done using the virtual environment, run: <br>
   $ deactivate  
