@@ -49,3 +49,7 @@ Checked placement of requirements.txt info and activate virtual environment info
 margieC -- 2024-12-05 9:25
 Updated README.md, fixed information in guides
 Added note for optional venv if user know their system well
+
+
+adityaA -- 2024-12-05 11:47
+Added requirements.txt, worked on python/flask
