@@ -1,6 +1,22 @@
-adityaA -- 2024-11-26 11:47
+margieC, adityaA, suhanaK, stellaY -- 2024-11-26 11:46
+Discussed project roles, APIs, and possible routes
+Created design doc and added discussion notes 
+
+adityaA -- 2024-11-26 23:47
 Added explanation of how each component relates to the others and component map visualizing relationships between components in design doc
 Requested card for coinflip API
+
+stellaY -- 2024-11-27 00:14
+Expanded on database organization in design doc
+Requested rpgdiceroller API
+
+margieC -- 2024-11-27 9:23
+Explained functionalities of each HTML page
+Added redirections between each page
+
+suhanaK -- 2024-11-27 9:23
+Added site map
+Explained our chosen FEF and its purpose in our project
 
 adityaA -- 2024-12-02 22:22
 Digitized site map, reviewed site map to ensure connections are valid and not designated for change
@@ -9,10 +25,27 @@ suhanaK -- 2024-12-03 8:30
 Explained use of APIs and Tailwind as Front End Framework
 Improved flow of components
 
-margieC -- 2024-12-03 11:01
-Updated README.md
+margieC -- 2024-12-03 9:26
+Updated README.md with heading, roster, project summary, and guides
 Expanded on our API usage and the quotas for each
 Added tables to illustrate the tables in our database
 
+margieC, adityaA, suhanaK -- 2024-12-03 11:47
+Discussed uses of API and vision for the project (e.g the type of games)
+
 adityaA -- 2024-12-03 11:47
-Created directory and readme for keys, added design doc pdf, discussed uses of API and vision for project with team
+Created directory and readme for keys, added design doc pdf, added information for coin flip api
+
+stellaY -- 2024-12-04 03:22
+Updated README.md
+
+margieC, adityaA, stellaY -- 2024-12-04 11:47
+Discussed further on the idea of currency v.s points and its implementation
+Potential usage of another API to create daily logins for rewards
+
+adityaA -- 2024-12-04 11:47
+Checked placement of requirements.txt info and activate virtual environment info, reviewed install guide and launch codes, started planning python 
+
+margieC -- 2024-12-05 9:25
+Updated README.md, fixed information in guides
+Added note for optional venv if user know their system well
