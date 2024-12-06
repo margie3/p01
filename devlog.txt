@@ -55,3 +55,6 @@ Added requirements.txt, worked on python/flask
 
 margieC -- 2024-12-05 11:47
 Added API keys + fundamentals for a running app
+
+adityaA -- 2024-12-06 11:47
+Continued to work on python/flask functionalities
