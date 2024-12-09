@@ -58,4 +58,13 @@ Added API keys + fundamentals for a running app
 
 adityaA -- 2024-12-06 11:47
 Continued to work on python/flask functionalities
->>>>>>> c039450dc8a5b5acbc156df149b1d2a216ed5168
+
+suhanaK -- 2024-12-06 11:47
+Worked on login, logout and home pages
+
+stellaY -- 2024-12-09 1:54
+Added db code to main
+
+margieC -- 2024-12-09 9:14
+Added try except for key mechanisms
+>>>>>>> b2062053fd590d038532d182c6d1108d944d4152
