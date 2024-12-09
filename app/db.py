@@ -20,14 +20,14 @@ def makeDb():
 def addUser(u, p):
     db = get_db()
     c = db.cursor()
-    c.execute("INSERT INTO users VALUES (?, ?, 100)"(u,p))
+    c.execute("INSERT INTO users VALUES (?, ?, 100)", (u,p))
     db.commit()
 
 #adds a new game to the scores table
 def addGame(user, game, score):
     db = get_db()
     c = db.cursor()
-    c.execute("INSERT INTO scores VALUES (?, ?, ?)"(user,game,score))
+    c.execute("INSERT INTO scores VALUES (?, ?, ?)", (user,game,score))
     db.commit()
 
 #get the balance in a users account

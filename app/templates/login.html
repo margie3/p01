@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 
 <html>
+<head>
+  <title>Log In</title>
+</head>
+<body>
+  <h1>YACK</h1>
+  <h3>Enter your username and password below to proceed.</h3>
 
-  <head>
-    <title>LetsBeFinanciallyResponsible</title>
-  </head>
+  <form method="POST">
+    <label for="username">Username:</label><br>
+    <input type="text" required id="username" name="username"> <br><br>
+    <label for="password">Password:</label><br>
+    <input type="password" required id="password" name="password"> <br><br>
+    <input type="submit" name="sub1" value="Login">
+  </form>
 
-  <body>
-    <h1>
-        hello world
-    </h1>
-  </body>
-
+  <div>
+    <p>Don't have an account? <a href="/">Register here</a>.</p>
+  </div>
+</body>
 </html>
