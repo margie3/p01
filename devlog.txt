@@ -58,3 +58,6 @@ Added API keys + fundamentals for a running app
 
 adityaA -- 2024-12-06 11:47
 Continued to work on python/flask functionalities
+
+stellaY -- 2024-12-09 1:54
+Added db code to main
