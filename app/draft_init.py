@@ -1,3 +1,44 @@
+from db import changeBalance, addGame, getBalance
+
+@app.route("/login",  methods=['GET','POST'])
+def disp_loginpage():
+    if 'email' and 'password' in session:
+        name = session['email']
+        # Boost balance by a fixed amount (e.g., 10 currency units)
+        changeBalance(username, 10)
+        return render_template('homepage.html', user=name)
+    return render_template( 'login.html' ) #renders homepage
+    
+    
+    @app.route("/blackjack", methods=["POST"])
+def blackjack_result():
+    try:
+        game_result = request.json  # e.g., {"username": "stuy_guy", "win": True, "score": 20}
+
+    username = game_result["username"]
+    win = game_result["win"]
+    score = game_result["score"]
+
+    # Update balance based on win/loss
+    balance_change = score if win else -score
+    changeBalance(username, balance_change)
+
+    # Record the game result in the scores table
+    addGame(username, "blackjack", score)
+
+    return {"message": "Game result recorded!", "balance": getBalance(username)}
+    except KeyError:
+        return {"error": "Invalid game result format"}, 400
+    except Exception as e:
+        return {"error": str(e)}, 500
+
+
+
+
+
+
+
+
 import os
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
