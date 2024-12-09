@@ -61,3 +61,6 @@ Continued to work on python/flask functionalities
 
 stellaY -- 2024-12-09 1:54
 Added db code to main
+
+margieC -- 2024-12-09 9:14
+Added try except for key mechanisms
