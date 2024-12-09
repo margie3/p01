@@ -56,6 +56,6 @@ Added requirements.txt, worked on python/flask
 margieC -- 2024-12-05 11:47
 Added API keys + fundamentals for a running app
 
-suhanaK -- 2024-12-06 11:47
-worked on log out, log in, register 
-
+adityaA -- 2024-12-06 11:47
+Continued to work on python/flask functionalities
+>>>>>>> c039450dc8a5b5acbc156df149b1d2a216ed5168
