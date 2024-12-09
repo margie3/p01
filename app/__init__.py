@@ -5,6 +5,20 @@ import key
 app = Flask(__name__)
 app.secret_key = key.key()
 
+key_flip = None
+try:
+    with open("keys/key_coinflip.txt", "r") as file:
+        key_merriam = file.read().strip()
+except:
+    print('no coinflip key')
+
+key_freesound = None
+try:
+    with open("keys/key_freesound.txt", "r") as file:
+        key_unsplash = file.read().strip()
+except:
+    print('no freesound key')
+
 @app.route("/")
 def login():
     return render_template("login.html")
