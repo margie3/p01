@@ -50,6 +50,9 @@ margieC -- 2024-12-05 9:25
 Updated README.md, fixed information in guides
 Added note for optional venv if user know their system well
 
+stellaY -- 2024-12-05 11:47
+add build_db and methods to db.py
+
 adityaA -- 2024-12-05 11:47
 Added requirements.txt, worked on python/flask
 
@@ -58,6 +61,9 @@ Added API keys + fundamentals for a running app
 
 adityaA -- 2024-12-06 11:47
 Continued to work on python/flask functionalities
+
+stellaY -- 2024-12-06 11:47
+Add getHiscores and getUserHiScores to db.py, fix bugs in db code
 
 stellaY -- 2024-12-09 1:54
 Added db code to main
