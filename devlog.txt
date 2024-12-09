@@ -41,7 +41,7 @@ Updated README.md
 
 margieC, adityaA, stellaY -- 2024-12-04 11:47
 Discussed further on the idea of currency v.s points and its implementation
-Potential usage of another API to create daily logins for rewards
+Potential usage of another API to create d aily logins for rewards
 
 adityaA -- 2024-12-04 11:47
 Checked placement of requirements.txt info and activate virtual environment info, reviewed install guide and launch codes, started planning python 
@@ -62,17 +62,18 @@ Added API keys + fundamentals for a running app
 adityaA -- 2024-12-06 11:47
 Continued to work on python/flask functionalities
 
-<<<<<<< HEAD
 suhanaK -- 2024-12-06 11:47
 Worked on login, logout and home pages
-=======
+
 stellaY -- 2024-12-06 11:47
 Add getHiscores and getUserHiScores to db.py, fix bugs in db code
->>>>>>> a7964e2c86b30316aad87d27ba387a0687fed094
 
 stellaY -- 2024-12-09 1:54
 Added db code to main
 
 margieC -- 2024-12-09 9:14
 Added try except for key mechanisms
+
+suhanaK -- 2024-12-09 11:47
+Planning out and reading links for FEF 
 >>>>>>> b2062053fd590d038532d182c6d1108d944d4152
