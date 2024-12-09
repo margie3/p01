@@ -1,6 +1,7 @@
 from flask import Flask, render_template, session, request, flash, redirect
 import sqlite3
 import key
+import blackjack
 
 app = Flask(__name__)
 app.secret_key = key.key()
@@ -19,15 +20,12 @@ try:
 except:
     print('no freesound key')
 
-@app.route("/")
-def login():
-    return render_template("login.html")
-
-@app.route("/login",  methods=['GET','POST'])
+@app.route("/",  methods=['GET','POST'])
 def disp_loginpage():
     if 'email' and 'password' in session:
         name = session['email']
         return render_template('homepage.html', user=name)
+    blackjack.run()
     return render_template( 'login.html' ) #renders homepage
 
 
