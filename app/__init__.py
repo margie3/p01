@@ -23,7 +23,7 @@ except:
 
 @app.route("/",  methods=['GET','POST'])
 def disp_loginpage():
-        if 'email' and 'password' in session:
+    if 'email' and 'password' in session:
         name = session['email']
         # Boost balance by a fixed amount (e.g., 10 currency units)
         changeBalance(username, 10)
