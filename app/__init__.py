@@ -1,5 +1,5 @@
-from flask import Flask, render_template, session, request, flash, redirect
 import sqlite3
+from flask import Flask, render_template, session, request, flash, redirect
 import key
 import blackjack
 
