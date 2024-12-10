@@ -66,6 +66,7 @@ def blackjack_result():
         return {"error": "Invalid game result format"}, 400
     except Exception as e:
         return {"error": str(e)}, 500
+    return render_template('cards.html', username=name, win=results, score=points)
 
 if __name__ == "__main__":
     app.debug = True
