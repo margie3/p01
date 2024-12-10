@@ -10,14 +10,14 @@ app.secret_key = key.key()
 key_flip = None
 try:
     with open("keys/key_coinflip.txt", "r") as file:
-        key_merriam = file.read().strip()
+        key_flip = file.read()
 except:
     print('no coinflip key')
 
 key_freesound = None
 try:
     with open("keys/key_freesound.txt", "r") as file:
-        key_unsplash = file.read().strip()
+        key_freesound = file.read()
 except:
     print('no freesound key')
 
