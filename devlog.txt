@@ -82,3 +82,6 @@ Added blackjack flask code
 
 adityaA -- 2024-12-10 11:47
 Worked on flask
+
+suhanaK -- 2024-12-10 11L47
+worked on blackjack html
