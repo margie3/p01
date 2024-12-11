@@ -28,7 +28,7 @@ def disp_loginpage():
         # Boost balance by a fixed amount (e.g., 10 currency units)
         changeBalance(username, 10)
         return render_template('homepage.html', user=name)
-    blackjack.run()
+#     blackjack.run()
     return render_template( 'login.html' ) #renders homepage
 
 
