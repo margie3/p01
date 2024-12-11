@@ -88,3 +88,6 @@ worked on blackjack html
 
 suhanak -- 2024-12-10 11:47
 changed homepage and blackjack html, waiting on blackjack py to complete before adding more features
+
+adityaA -- 2024-12-11 11:47
+Changed pathway from  login to register; worked on flask
