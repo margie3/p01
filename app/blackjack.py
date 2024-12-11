@@ -1,7 +1,7 @@
-import __init__
-import urllib
-import urllib.request
+import requests
 import json
+import __init__
 
 def run():
-    print("You Won!")
+    response = requests.get("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")    
+    print(response)
