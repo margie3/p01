@@ -83,5 +83,23 @@ Added blackjack flask code
 adityaA -- 2024-12-10 11:47
 Worked on flask
 
-suhanaK -- 2024-12-10 11L47
+suhanaK -- 2024-12-10 11:47
 worked on blackjack html
+
+stellaY -- 2024-12-10 11:47
+Debugged SQL code
+
+suhanak -- 2024-12-10 11:47
+changed homepage and blackjack html, waiting on blackjack py to complete before adding more features
+
+adityaA -- 2024-12-11 11:47
+Changed pathway from  login to register; worked on flask
+
+stellaY -- 2024-12-11 11:47
+debugged SQL code
+
+adityaA -- 2024-12-12 11:47
+Worked on flask, discussed with teammates
+
+stellaY -- 2024-12-12 11:47
+Discussed database implementiation, debugged
