@@ -91,3 +91,6 @@ changed homepage and blackjack html, waiting on blackjack py to complete before 
 
 adityaA -- 2024-12-11 11:47
 Changed pathway from  login to register; worked on flask
+
+adityaA -- 2024-12-12 11:47
+Worked on flask, discussed with teammates
