@@ -103,3 +103,7 @@ Worked on flask, discussed with teammates
 
 stellaY -- 2024-12-12 11:47
 Discussed database implementiation, debugged
+
+adityaA -- 2024-12-13 11:47
+Continued to work on flask
+
