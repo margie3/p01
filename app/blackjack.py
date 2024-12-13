@@ -6,26 +6,40 @@ def setup():
     data = response.text
 #     print(data)
     deckid = (response.json().get("deck_id"))
-    draw = requests.get("https://deckofcardsapi.com/api/deck/" + deckid + "/draw/?count=2")
+    draw = requests.get("https://deckofcardsapi.com/api/deck/" + deckid + "/draw/?count=4")
 #     print(draw.json().get("cards"))
-    card1 = draw.json().get("cards")[0].get("image")
-    card2 = draw.json().get("cards")[1].get("image") #storing drawn card images for html
+    u1 = draw.json().get("cards")[0].get("image") #first card to user, second to dealer
+    d1 = draw.json().get("cards")[1].get("image")
+    u2 = draw.json().get("cards")[2].get("image")
+    d2 = draw.json().get("cards")[3].get("image") #storing drawn card images for html, dcard2 not shown
 #     print(draw.json().get("deck_id"))
 #     print(draw.json().get("cards")[0].get("value"))
-    value1 = draw.json().get("cards")[0].get("value")
-    value2 = draw.json().get("cards")[1].get("value")
-    if (value1 == "KING" or value1 == "QUEEN" or value1 == "JACK"):
-        value1 = 10
-    if (value1 == "ACE"):
-        value1 = 11
-    if (value2 == "KING" or value2 == "QUEEN" or value2 == "JACK"):
-        value2 = 10
-    if (value2 == "ACE"):
-        value2 = 11
-    print(value1)
-    print(value2)
-    if ((int)(value1) + (int)(value2) == 21):
+    u1 = draw.json().get("cards")[0].get("value")
+    d1 = draw.json().get("cards")[0].get("value")
+    u2 = draw.json().get("cards")[1].get("value")
+    d2 = draw.json().get("cards")[0].get("value")
+    u1 = convert(u1)
+    u2 = convert(u2)
+    d1 = convert(d1)
+    d2 = convert(d2)
+#     print(value1)
+#     print(value2)
+    if ((int)(u1) + (int)(u2) == 21):
         print("you win")
-    print((int)(value1) + (int)(value2)) 
-    print((int)(value1) + (int)(value2) == 21)
+        return True
+    if ((int)(d1) + (int)(d2) == 21):
+        print("you lose")
+        return True
+    return False
+    
+def hit():
+    hit = requests.get("https://deckofcardsapi.com/api/deck/" + deckid + "/draw/?count=1")
+    
+def convert(value):
+    if (value == "KING" or value == "QUEEN" or value == "JACK"):
+        value = 10
+    if (value == "ACE"):
+        value = 11
+    return value
+
 setup()
