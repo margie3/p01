@@ -12,7 +12,7 @@ def get_db():
 def makeDb():
     db = get_db()
     c = db.cursor()
-    c.execute("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, balance INTEGER")
+    c.execute("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, balance INTEGER)")
     c.execute("CREATE TABLE IF NOT EXISTS scores (username TEXT, game TEXT, score INTEGER)")
     db.commit()
 
@@ -20,51 +20,53 @@ def makeDb():
 def addUser(u, p):
     db = get_db()
     c = db.cursor()
-    c.execute("INSERT INTO users VALUES (?, ?, 100)", (u,p))
+    c.execute("INSERT INTO users VALUES (?, ?, 100)", (u,p))  # Add default balance of 100
     db.commit()
 
-#adds a new game to the scores table
+# Adds a new game score to the scores table
 def addGame(user, game, score):
     db = get_db()
     c = db.cursor()
-    c.execute("INSERT INTO scores VALUES (?, ?, ?)", (user,game,score))
+    c.execute("INSERT INTO scores VALUES (?, ?, ?)", (user, game, score))
     db.commit()
 
-#get the balance in a users account
+# Gets the balance in a user's account
 def getBalance(user):
     db = get_db()
     c = db.cursor()
-    c.execute("SELECT balance FROM users WHERE username = ?",(user,))
-    return c.fetchone
+    c.execute("SELECT balance FROM users WHERE username = ?", (user,))
+    result = c.fetchone()
+    return result[0] if result else 0
     db.commit()
 
-#change the balance in a users account
-def changeBalance(user,delta):
+# Changes the balance in a user's account
+def changeBalance(user, delta):
     db = get_db()
     c = db.cursor()
-    c.execute("""UPDATE scores
-                SET balance = ?
-                WHERE username = ?""", (user, delta + getBalance(user)))    
+    new_balance = delta + getBalance(user)
+    c.execute("UPDATE users SET balance = ? WHERE username = ?", (new_balance, user))
     db.commit()
-#Gets the num highest scores for a specific game 
+
+# Gets the top N highest scores for a specific game
 def getHiScores(num, game):
     db = get_db()
     c = db.cursor()
-    c.execute("SELECT TOP ? FROM scores WHERE game = ? ORDER BY score DESC", (num, game))
-    return c.fetchall
+    c.execute("SELECT * FROM scores WHERE game = ? ORDER BY score DESC LIMIT ?", (game, num))
+    return c.fetchall()
     db.commit()
 
-#Gets the num highest scores for a specific game 
+# Gets the top N highest scores for a specific game for a specific user
 def getUserHiScores(num, game, user):
     db = get_db()
     c = db.cursor()
-    c.execute("SELECT TOP ? FROM scores WHERE game = ? AND user = ? ORDER BY score DESC", (num, game, user))
-    return c.fetchall
-    db.commit()    
+    c.execute("SELECT * FROM scores WHERE game = ? AND username = ? ORDER BY score DESC LIMIT ?", (game, user, num))
+    return c.fetchall()
+    db.commit()
 
 # Gets the user's password (for verification purposes)
 def getPass(user):
     db = get_db()
     c = db.cursor()
-    c.execute(f"SELECT password FROM users WHERE username = ?", (user,))
-    return c.fetchone()
+    c.execute("SELECT password FROM users WHERE username = ?", (user,))
+    result = c.fetchone()
+    return result[0] if result else None

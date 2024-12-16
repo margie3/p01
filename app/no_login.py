@@ -2,7 +2,7 @@ import sqlite3
 from flask import Flask, render_template, session, request, redirect, url_for
 from db import makeDb, addUser, getPass, changeBalance
 import key
-import blackjack
+from blackjack import setup
 
 makeDb()
 
@@ -30,7 +30,12 @@ def disp_loginpage():
         # Boost balance by a fixed amount (e.g., 10 currency units)
         changeBalance(name, 10)
         return render_template('homepage.html', user=name)
-    return render_template('login.html')  # renders login page
+    game_data = setup()
+    return render_template('blackjack.html',
+                           user_score=game_data["user_score"],
+                           dealer_score=game_data["dealer_score"],
+                           user_images=game_data["user_images"],
+                           dealer_images=game_data["dealer_images"])
 
 @app.route("/logout", methods=['GET', 'POST'])
 def logout():
@@ -107,3 +112,4 @@ def blackjack_result():
 if __name__ == "__main__":
     app.debug = True
     app.run()  # Ensure the app runs when this script is executed
+

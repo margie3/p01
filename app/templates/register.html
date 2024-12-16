@@ -1,24 +1,28 @@
 <!DOCTYPE html> 
-<form action="homepage" method = "POST">
-  <div class="container">
-    <h1>Register</h1>
-    <p>Create an account</p>
-    <hr>
 
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" required id="username" name="username" >
+<body>
+  <h2>Register</h2>
+  <form action="/register" method="POST">
+      <div>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+      </div>
+      <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+      </div>
+      <div>
+        <label for="password-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" required id="password-repeat" name="password-repeat">
+    </div>
+      <div>
+          <button type="submit">Register</button>
+      </div>
+  </form>
 
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" required id="password" name="password">
+  <p>Already have an account? <a href="/login">Login here</a></p>
+</body>
 
-    <label for="password-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" required id="password-repeat" name="password-repeat">
-    <hr>
 
-    <button type="submit" class="registerbtn">Register</button>
-  </div>
-
-  <div class="container signin">
-    <p>Already have an account? <a href="login">Sign in</a>.</p>
-  </div>
 </form>
+

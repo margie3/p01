@@ -5,13 +5,13 @@ win = False
 end = False
 yourturn = False
 response = requests.get("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6") 
-#     data = response.text
-#     print(data)
 deckid = response.json().get("deck_id")
 user = 0
 dealer = 0
 
 def setup():
+    global user, dealer, yourturn  # Add global to modify the game state
+
     draw = requests.get("https://deckofcardsapi.com/api/deck/" + deckid + "/draw/?count=4")
 #     print(draw.json().get("cards"))
     uimg1 = draw.json().get("cards")[0].get("image"); dimg1 = draw.json().get("cards")[1].get("image") #first card to user, second to dealer
@@ -28,45 +28,52 @@ def setup():
     end()
     yourturn = True
 
+    return {"user_score": user, "dealer_score": dealer, "user_images": [uimg1, uimg2], "dealer_images": [dimg1, dimg2]}
+
 def hit():
-    hit = requests.get("https://deckofcardsapi.com/api/deck/" + deckid + "/draw/?count=1")
+    global user, yourturn
+
+    hit = requests.get(f"https://deckofcardsapi.com/api/deck/{deckid}/draw/?count=1")
     hitimg = hit.json().get("cards")[0].get("image")
-    end()
+    user_card = hit.json().get("cards")[0].get("value")
+
+    user += convert(user_card)
     yourturn = not yourturn
+
+    return {"user_score": user, "user_image": hitimg}
 
 def stay():
-    if (user > dealer):
+    global user, dealer, win, end, yourturn
+
+    if user > dealer:
         win = True
-        end = True
     else:
         win = False
-        end = True
+    end = True
     yourturn = not yourturn
 
+    return {"game_over": True, "win": win, "user_score": user, "dealer_score": dealer}
+
 def end():
-    if (user == 21):
-        print("you win")
-        win21 = True
+    global win, end
+
+    if user == 21:
+        win = True
         end = True
-    if (dealer == 21):
-        print("you lose")
-        lose21 = True
+    elif dealer == 21:
+        win = False
         end = True
-    if (user > 21):
-        print("you lose")
-        userbust = True
+    elif user > 21:
+        win = False
         end = True
-    if (dealer > 21):
-        print("you win")
-        dealerbust = True
+    elif dealer > 21:
+        win = True
         end = True
 
 def convert(value):
-    if (value == "KING" or value == "QUEEN" or value == "JACK"):
-        value = 10
-    if (value == "ACE"):
-        value = 11
-    return value
+    if value in ["KING", "QUEEN", "JACK"]:
+        return 10
+    if value == "ACE":
+        return 11
+    return int(value)
 
-setup()
-hit()

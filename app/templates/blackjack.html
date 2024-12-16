@@ -1,26 +1,32 @@
 <!DOCTYPE html>
-
 <html> 
     <head>
        <title> Blackjack </title>
     </head>
-
     <body>
-        <h1>
-            {{ user }} you are playing Blackjack
-            You winning the game is a {{ win }} statement
-        </h1>
-        <nav>
-            Points: {{ score }}
-        </nav>
+        <h1>{{ user }} you are playing Blackjack</h1>
+        <h2>Score: {{ user_score }}</h2>
+        <h2>Dealer's Score: {{ dealer_score }}</h2>
 
-        <p>
-           <button type="submit" <a href="/logout">Log Out </a> > Log out </button>
-           
+        <div>
+            <p>User's Cards:</p>
+            <img src="{{ user_images[0] }}" alt="user card 1">
+            <img src="{{ user_images[1] }}" alt="user card 2">
+        </div>
 
-        </P>
-           
+        <div>
+            <p>Dealer's Cards:</p>
+            <img src="{{ dealer_images[0] }}" alt="dealer card 1">
+            <img src="{{ dealer_images[1] }}" alt="dealer card 2">
+        </div>
 
+        <form method="POST">
+            <button name="action" value="hit">Hit</button>
+            <button name="action" value="stay">Stay</button>
+        </form>
 
+        {% if win is not none %}
+            <p>You {{ 'win' if win else 'lose' }}!</p>
+        {% endif %}
     </body>
-
+</html>
