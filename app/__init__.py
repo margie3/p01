@@ -46,8 +46,8 @@ def login():
         
         # Verify credentials
         stored_password = getPass(username)
-        if stored_password and stored_password[0] == password:
-            session["email"] = username
+        if stored_password == password:
+            session["username"] = username
             session["password"] = password
             return redirect(url_for("homepage"))
         else:
@@ -68,16 +68,17 @@ def register():
         else:
             # Register the new user
             addUser(username, password)
+            print(addUser)
             return redirect(url_for("login"))
     
     return render_template("register.html")
 
 @app.route("/homepage", methods=['GET', 'POST'])
 def homepage():
-    session['email'] = request.form['email']
+    '''session['email'] = request.form['username']
     session['password'] = request.form['password']
-    name = session['email']
-    return render_template('homepage.html', user=name)
+    name = session['email']'''
+    return render_template('homepage.html')#, user=name)
 
 @app.route("/blackjack", methods=["GET", "POST"])
 def blackjack_result():
