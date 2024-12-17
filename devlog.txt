@@ -137,3 +137,8 @@ Added more blackjack functions and worked on blackjack.html
 suhanaK -- 2024-12-17 3:30
 finished all the html
 
+margieC -- 2024-12-17 9:20
+updated design doc
+explained functions of game files
+changed score table to currency table
+
