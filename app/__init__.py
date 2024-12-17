@@ -103,7 +103,24 @@ def blackjack_result():
                         "user_score": game_data["user_score"], 
                         "dealer_score": game_data["dealer_score"]})
 
-    return render_template('blackjack.html')
+    game_data = blackjack.setup()
+    return render_template('blackjack.html',
+                           user_score=game_data["user_score"],
+                           dealer_score=game_data["dealer_score"],
+                           user_images=game_data["user_images"],
+                           dealer_images=game_data["dealer_images"])
+
+
+
+@app.route("/dice", methods=['GET', 'POST'])
+def dice():
+    return render_template('dice.html')
+
+@app.route("/coin", methods=['GET', 'POST'])
+def coin():
+    return render_template('coin.html')
+
+
 
 if __name__ == "__main__":
     app.debug = True
