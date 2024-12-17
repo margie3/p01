@@ -151,12 +151,12 @@ def dice_result():
     if request.method == "POST":
         guessnum = request.form.get("guessnum")
         dice.guess(guessnum)
-        render_template("dice.html", end = dice.end, win = dice.win, total = dice.num)
+        return render_template("dice.html", end = dice.end, win = dice.win, total = dice.num)
     return render_template('dice.html')
 
 @app.route("/coin", methods=['GET', 'POST'])
 def coin_result():
-    if coin.end:
+    if coin.ending:
         if coin.win:
             user = session["username"]
             changeBalance(user, 20)  # Award +20 for winning
@@ -165,11 +165,11 @@ def coin_result():
             changeBalance(user, -10)  # Deduct -10 for losing
     action = request.form.get("action")
     if action == "heads":
-        coin.flip(heads)
-        render_template("dice.html", end = dice.end, win = dice.win, total = dice.num)
+        coin.flip("Heads")
+        return render_template("coin.html", end = coin.ending, win = coin.win, result = coin.result)
     elif action == "tails":
-        coin.flip(tails)
-        render_template("dice.html", end = dice.end, win = dice.win, total = dice.num)
+        coin.flip("Tails")
+        return render_template("coin.html", end = coin.ending, win = coin.win, result = coin.result)
     return render_template('coin.html')
 
 
