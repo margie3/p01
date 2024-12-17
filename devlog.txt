@@ -110,6 +110,12 @@ Continued to work on flask
 stellaY -- 2024-12-16 11:47
 Debugged db code, assisted with flask debugging.
 
+suhanaK -- 2024-12-16 11:47
+worked on blackjack html
+
 adityaA -- 2024-12-16 11:47
 Fixed init, blackjack,db
+
+suhanaK -- 2024-12-17 3:30
+finished all the html
 
