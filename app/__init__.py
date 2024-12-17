@@ -4,7 +4,7 @@ from db import makeDb, addUser, getPass, changeBalance
 import key
 import blackjack
 #import dice
-#import coin
+import coin
 
 makeDb()
 
