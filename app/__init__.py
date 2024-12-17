@@ -141,6 +141,10 @@ def blackjack_result():
 
 @app.route("/dice", methods=['GET', 'POST'])
 def dice_result():
+    if request.method == "POST":
+        guessnum = request.form.get("guessnum")
+        dice.guess(guessnum)
+        return render_template("dice.html", end = dice.end, win = dice.win, total = dice.num)
     if dice.end:
         if dice.win:
             user = session["username"]
@@ -148,21 +152,10 @@ def dice_result():
         else:
             user = session["username"]
             changeBalance(user, -10)  # Deduct -10 for losing
-    if request.method == "POST":
-        guessnum = request.form.get("guessnum")
-        dice.guess(guessnum)
-        return render_template("dice.html", end = dice.end, win = dice.win, total = dice.num)
     return render_template('dice.html')
 
 @app.route("/coin", methods=['GET', 'POST'])
 def coin_result():
-    if coin.ending:
-        if coin.win:
-            user = session["username"]
-            changeBalance(user, 20)  # Award +20 for winning
-        else:
-            user = session["username"]
-            changeBalance(user, -10)  # Deduct -10 for losing
     action = request.form.get("action")
     if action == "heads":
         coin.flip("Heads")
@@ -170,6 +163,13 @@ def coin_result():
     elif action == "tails":
         coin.flip("Tails")
         return render_template("coin.html", end = coin.ending, win = coin.win, result = coin.result)
+    if coin.ending:
+        if coin.win:
+            user = session["username"]
+            changeBalance(user, 20)  # Award +20 for winning
+        else:
+            user = session["username"]
+            changeBalance(user, -10)  # Deduct -10 for losing
     return render_template('coin.html')
 
 

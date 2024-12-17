@@ -16,6 +16,8 @@ result = response.json().get("outcome")
 
 def flip(guess):
     global ending, win, result
+    response = requests.get(url, headers=headers)
+    result = response.json().get("outcome")
     ending = False
     win = False
     if result == guess:
