@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
-    <title> Logout </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Logout</title>
   </head>
+  <body class="bg-green-50 flex items-center justify-center min-h-screen">
+    <div
+      class="bg-white p-8 rounded-lg shadow-md w-full max-w-md border-t-4 border-green-500 text-center"
+    >
+      <!-- Heading -->
+      <h1 class="text-3xl font-bold text-green-600 mb-4">You have been logged out.</h1>
 
-  <body>
-    <h1>
-        You have been logged out.
-    </h1>
-    <form action="/homepage" method="POST">
-        <button type="submit">Back to Home Page</button>
+      <!-- Back to Home Form -->
+      <form action="/homepage" method="POST">
+        <button
+          type="submit"
+          class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-medium text-lg transition duration-200"
+        >
+          Back to Home Page
+        </button>
       </form>
+    </div>
   </body>
-
 </html>

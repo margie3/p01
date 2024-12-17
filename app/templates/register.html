@@ -1,28 +1,90 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Register</title>
+  </head>
+  <body class="bg-green-50 flex items-center justify-center min-h-screen">
+    <div
+      class="bg-white p-8 rounded-lg shadow-md w-full max-w-md border-t-4 border-green-500"
+    >
+      <!-- Heading -->
+      <h1 class="text-3xl font-bold text-green-600 text-center mb-4">YACK CASINO</h1>
+      <h3 class="text-lg text-gray-600 text-center mb-6">Create your account</h3>
 
-<body>
-  <h2>Register</h2>
-  <form action="/register" method="POST">
-      <div>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required>
-      </div>
-      <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-      </div>
-      <div>
-        <label for="password-repeat"><b>Repeat Password</b></label>
-        <input type="password" placeholder="Repeat Password" required id="password-repeat" name="password-repeat">
+      <!-- Register Form -->
+      <form action="/register" method="POST" class="space-y-4">
+        <!-- Username Field -->
+        <div>
+          <label
+            for="username"
+            class="block text-sm font-medium text-gray-700"
+            >Username:</label
+          >
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            class="w-full mt-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:outline-none"
+          />
+        </div>
+
+        <!-- Password Field -->
+        <div>
+          <label
+            for="password"
+            class="block text-sm font-medium text-gray-700"
+            >Password:</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="w-full mt-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:outline-none"
+          />
+        </div>
+
+        <!-- Repeat Password Field -->
+        <div>
+          <label
+            for="password-repeat"
+            class="block text-sm font-medium text-gray-700"
+            >Repeat Password:</label
+          >
+          <input
+            type="password"
+            id="password-repeat"
+            name="password-repeat"
+            placeholder="Repeat Password"
+            required
+            class="w-full mt-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:outline-none"
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <button
+            type="submit"
+            class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg font-medium text-lg transition duration-200"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+
+      <!-- Login Link -->
+      <p class="mt-4 text-center text-sm text-gray-600">
+        Already have an account?
+        <a
+          href="/login"
+          class="text-green-500 hover:underline font-medium"
+          >Login here</a
+        >
+      </p>
     </div>
-      <div>
-          <button type="submit">Register</button>
-      </div>
-  </form>
-
-  <p>Already have an account? <a href="/login">Login here</a></p>
-</body>
-
-
-</form>
-
+  </body>
+</html>
