@@ -145,6 +145,8 @@ def dice_result():
         guessnum = request.form.get("guessnum")
         dice.guess(guessnum)
         return render_template("dice.html", end = dice.end, win = dice.win, total = dice.num)
+    else:
+        return render_template('dice.html')
     if dice.end:
         if dice.win:
             user = session["username"]
