@@ -1,35 +1,84 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <script src = "https://cdn.tailwindcss.com"> </script>
-        <title> Home Page </title>
-
-  <body>
-    <h1>
-        Welcome to your HomePage {{ user }}!
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home Page</title>
+  </head>
+  <body class="bg-green-50 min-h-screen flex flex-col items-center">
+    <h1 class="text-5xl font-bold text-green-600 mt-8 mb-12 text-center">
+      Welcome to your HomePage {{ user }}!
     </h1>
-    <h3> Play Blackjack!</h3>
-    <form id = "home" action="/blackjack" method="POST">
-      <button type="submit" name="bjb" value="submit">Click here</button>
-    </form>
-    <h3> Play Dice!</h3>
-    <form id = "home" action="/dice" method="POST">
-      <button type="submit" name="diceb" value="submit">Click here</button>
-    </form>
-     <h3> Play Coin!</h3>
-    <form id = "home" action="/coin" method="POST">
-      <button type="submit" name="coinb" value="submit">Click here</button>
-    </form>
-  <p> 
+    <div class="relative w-full max-w-5xl flex justify-center items-start">
+      <!-- Blackjack Card -->
+      <div
+        class="bg-white rounded-lg shadow-lg p-8 text-center border-t-4 border-green-500 hover:shadow-2xl transition-transform transform hover:scale-105 absolute left-0 top-0 w-80"
+      >
+        <img
+          src="blackjack.jpg"
+          alt="Blackjack Image"
+          class="w-full h-32 object-cover mb-4 rounded"
+        />
+        <h3 class="text-3xl font-semibold text-green-600 mb-4">Play Blackjack!</h3>
+        <form action="/blackjack" method="POST">
+          <button
+            type="submit"
+            class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg font-medium text-lg transition duration-200"
+          >
+            Click here
+          </button>
+        </form>
+      </div>
 
-</p>
-  <p> 
-      <a href="/logout">Log Out </a>
-      
-  </p>
-  
+      <!-- Dice Card -->
+      <div
+        class="bg-white rounded-lg shadow-lg p-8 text-center border-t-4 border-green-500 hover:shadow-2xl transition-transform transform hover:scale-105 absolute top-20 w-80"
+      >
+        <img
+          src="dice.jpg"
+          alt="Dice Image"
+          class="w-full h-32 object-cover mb-4 rounded"
+        />
+        <h3 class="text-3xl font-semibold text-green-600 mb-4">Play Dice!</h3>
+        <form action="/dice" method="POST">
+          <button
+            type="submit"
+            class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg font-medium text-lg transition duration-200"
+          >
+            Click here
+          </button>
+        </form>
+      </div>
 
+      <!-- Coin Card -->
+      <div
+        class="bg-white rounded-lg shadow-lg p-8 text-center border-t-4 border-green-500 hover:shadow-2xl transition-transform transform hover:scale-105 absolute right-0 top-0 w-80"
+      >
+        <img
+          src="coin.jpg"
+          alt="Coin Image"
+          class="w-full h-32 object-cover mb-4 rounded"
+        />
+        <h3 class="text-3xl font-semibold text-green-600 mb-4">Play Coin!</h3>
+        <form action="/coin" method="POST">
+          <button
+            type="submit"
+            class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg font-medium text-lg transition duration-200"
+          >
+            Click here
+          </button>
+        </form>
+      </div>
+    </div>
 
- 
-  </body> 
+   
+  </body>
+  <div class="w-full text-center mb-4">
+    <a
+      href="/logout"
+      class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg font-medium text-lg transition duration-200"
+    >
+      Log Out
+    </a>
+</html>
