@@ -100,13 +100,18 @@ def blackjack_result():
                                user_imgs = blackjack.user_imgs,
                                dealer_imgs = blackjack.dealer_imgs)
     elif action == "stay":
-        game_data = blackjack.stay()
-        return jsonify({"game_over": game_data["game_over"], 
-                        "win": game_data["win"], 
-                        "user_score": game_data["user_score"], 
-                        "dealer_score": game_data["dealer_score"]})
+        blackjack.stay()
+        return render_template('blackjack.html', 
+                               userscore = blackjack.user,
+                               win = blackjack.win,
+                               end = blackjack.end,
+                               bust = blackjack.bust,
+                               user_imgs = blackjack.user_imgs,
+                               dealer_imgs = blackjack.dealer_imgs)
     return render_template('blackjack.html', 
                                userscore= blackjack.user,
+                               win = blackjack.win,
+                               end = blackjack.end,
                                user_imgs= blackjack.user_imgs,
                                dealer_imgs= blackjack.dealer_imgs)
 if __name__ == "__main__":

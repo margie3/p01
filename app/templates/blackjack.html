@@ -24,13 +24,26 @@
             {% endfor %}
         </div>
 
+        {% if end is false %}
         <form method="POST">
             <button name="action" value="hit">Hit</button>
             <button name="action" value="stay">Stay</button>
         </form>
+        {% endif %}
 
         {% if end is true %}
-            <p>You {{ 'win' if win else 'lose' }}!</p>
+            {% if bust is false and win is true %}
+                <p>You WIN!! 21 :D</p>
+            {% endif %}
+            {% if bust is true and win is true %}
+                <p>You WIN!! Dealer BUSTED</p>
+            {% endif %}
+            {% if bust is false and win is false %}
+                <p>You LOST!! Dealer has blackjack!</p>
+            {% endif %}
+            {% if bust is true and win is false %}
+                <p>You LOST!! BUSTED</p>
+            {% endif %}
         {% endif %}
     </body>
 </html>

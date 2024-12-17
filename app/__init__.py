@@ -84,35 +84,38 @@ def homepage():
 @app.route("/blackjack", methods=["GET", "POST"])
 def blackjack_result():
     if request.method == "GET":
-        game_data = blackjack.setup()
-        return render_template('blackjack.html', 
-                               user_score=game_data["user_score"],
-                               dealer_score=game_data["dealer_score"],
-                               user_images=game_data["user_images"],
-                               dealer_images=game_data["dealer_images"])
-
+        blackjack.setup()
     # If POST request (hit or stay)
     action = request.form.get("action")  # 'hit' or 'stay'
     if action == "hit":
-        game_data = blackjack.hit()
-        return jsonify({"user_score": game_data["user_score"], "user_image": game_data["user_image"]})
-
+        blackjack.hit()
+        return render_template('blackjack.html', 
+                               userscore = blackjack.user,
+                               win = blackjack.win,
+                               end = blackjack.end,
+                               bust = blackjack.bust,
+                               user_imgs = blackjack.user_imgs,
+                               dealer_imgs = blackjack.dealer_imgs)
     elif action == "stay":
-        game_data = blackjack.stay()
-        if game_data["game_over"]:
-            if game_data["win"]:
+        blackjack.stay()
+        return render_template('blackjack.html', 
+                               userscore = blackjack.user,
+                               win = blackjack.win,
+                               end = blackjack.end,
+                               bust = blackjack.bust,
+                               user_imgs = blackjack.user_imgs,
+                               dealer_imgs = blackjack.dealer_imgs)
+    if blackjack.end:
+            if blackjack.win:
                 changeBalance(username, 20)  # Award +20 for winning
             else:
                 changeBalance(username, -10)  # Deduct -10 for losing
-
-    game_data = blackjack.setup()
-    return render_template('blackjack.html',
-                           user_score=game_data["user_score"],
-                           dealer_score=game_data["dealer_score"],
-                           user_images=game_data["user_images"],
-                           dealer_images=game_data["dealer_images"])
-
-
+    return render_template('blackjack.html', 
+                               userscore= blackjack.user,
+                               win = blackjack.win,
+                               end = blackjack.end,
+                               user_imgs= blackjack.user_imgs,
+                               dealer_imgs= blackjack.dealer_imgs)
 
 @app.route("/dice", methods=['GET', 'POST'])
 def dice():

@@ -18,8 +18,7 @@ def setup():
     global win, end, bust, yourturn, usercards, dealercards, deckid, user, dealer, user_imgs, dealer_imgs
     draw = requests.get("https://deckofcardsapi.com/api/deck/" + deckid + "/draw/?count=4")
 #     print(draw.json().get("cards"))
-    user_imgs = {}
-    dealer_imgs = {}
+    user_imgs = {}; dealer_imgs = {}; win = False; end = False; bust = False; usercards = 2; dealerscards = 2
     user_imgs[0] = draw.json().get("cards")[0].get("image"); dealer_imgs[0] = draw.json().get("cards")[1].get("image") #first card to user, second to dealer
     user_imgs[1] = draw.json().get("cards")[2].get("image"); dealer_imgs[1] = draw.json().get("cards")[3].get("image") #storing drawn card images for html, dcard2 not shown
     print(user_imgs[0])
@@ -53,12 +52,14 @@ def hit():
 
 def stay():
     global win, end, bust, yourturn, usercards, dealercards, deckid, user, dealer, user_imgs, dealer_imgs
-    if user > dealer:
-        win = True
+    if dealer < 17 and yourturn == False:
+        hit()
     else:
-        win = False
-    end = True
-    yourturn = not yourturn
+        if user > dealer:
+            win = True
+        else:
+            win = False
+        end = True
 
 def over():
     global win, end, bust, yourturn, usercards, dealercards, deckid, user, dealer, user_imgs, dealer_imgs
@@ -76,6 +77,14 @@ def over():
         win = True
         bust = True
         end = True
+
+def bot():
+    global win, end, bust, yourturn, usercards, dealercards, deckid, user, dealer, user_imgs, dealer_imgs
+    if (not yourturn):
+        if dealer < 17:
+            hit()
+        else:
+            stay()
 
 def convert(value):
     if value in ["KING", "QUEEN", "JACK"]:
