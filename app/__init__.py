@@ -3,7 +3,7 @@ from flask import Flask, render_template, session, request, redirect, url_for
 from db import makeDb, addUser, getPass, changeBalance
 import key
 import blackjack
-#import dice
+import dice
 import coin
 
 makeDb()
