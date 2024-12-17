@@ -28,7 +28,7 @@ def disp_loginpage():
     if 'email' and 'password' in session:
         name = session['email']
         # Boost balance by a fixed amount (e.g., 10 currency units)
-        changeBalance(name, 10)
+        #changeBalance(name, 10)
         return render_template('homepage.html', user=name)
     return render_template('login.html')  # renders login page
 
@@ -49,6 +49,7 @@ def login():
         if stored_password == password:
             session["username"] = username
             session["password"] = password
+            changeBalance(username, 10)
             return redirect(url_for("homepage"))
         else:
             return "Invalid username or password"
