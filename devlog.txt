@@ -89,6 +89,9 @@ worked on blackjack html
 stellaY -- 2024-12-10 11:47
 Debugged SQL code
 
+margieC -- 2024-12-10 11:47
+Worked on blackjack API implementation
+
 suhanak -- 2024-12-10 11:47
 changed homepage and blackjack html, waiting on blackjack py to complete before adding more features
 
@@ -97,6 +100,9 @@ Changed pathway from  login to register; worked on flask
 
 stellaY -- 2024-12-11 11:47
 debugged SQL code
+
+margieC -- 2024-12-11 11:47
+continuing to code blackjack
 
 adityaA -- 2024-12-12 11:47
 Worked on flask, discussed with teammates
@@ -107,6 +113,12 @@ Discussed database implementiation, debugged
 adityaA -- 2024-12-13 11:47
 Continued to work on flask
 
+margieC -- 2024-12-13 11:47
+Worked on adding dealer functions to blackjack
+
+margieC -- 2024-12-13 4:30
+Finished dealer functions + turn base
+
 stellaY -- 2024-12-16 11:47
 Debugged db code, assisted with flask debugging.
 
@@ -115,6 +127,12 @@ worked on blackjack html
 
 adityaA -- 2024-12-16 11:47
 Fixed init, blackjack,db
+
+margieC -- 2024-12-16 11:47
+Finished basic blackjack
+
+margieC -- 2024-12-17 2:24
+Added more blackjack functions and worked on blackjack.html
 
 suhanaK -- 2024-12-17 3:30
 finished all the html
