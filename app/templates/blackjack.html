@@ -1,60 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <script src = "https://cdn.tailwindcss.com"> </script>
-        <title> Blackjack </title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Blackjack</title>
+  </head>
+  <body class="bg-green-50 min-h-screen flex flex-col items-center">
+    <!-- Header -->
+    <h1 class="text-4xl font-bold text-green-600 mt-8 mb-4">
+      {{ user }} you are playing... Blackjack!
+    </h1>
+    <h2 class="text-2xl text-gray-700 mb-8">Score: {{ userscore }}</h2>
 
-    <body>
-        <h1>{{ user }} you are playing... Blackjack!</h1>
-        <h2>Score: {{ userscore }}</h2>
+    <!-- User's Cards -->
+    <div class="mb-8">
+      <h3 class="text-xl font-medium text-gray-700 mb-2">User's Cards:</h3>
+      <div class="flex gap-4">
+        {% for x in user_imgs %}
+        <img
+          src="{{user_imgs[x]}}"
+          alt="user card"
+          class="w-32 h-48 rounded-lg shadow-md border border-gray-300"
+        />
+        {% endfor %}
+      </div>
+    </div>
 
-        <div>
-            <p>User's Cards:</p>
-            {% for x in user_imgs %}
-                <img src="{{user_imgs[x]}}" alt="user card">
-            {% endfor %}
-        </div>
+    <!-- Dealer's Cards -->
+    <div class="mb-8">
+      <h3 class="text-xl font-medium text-gray-700 mb-2">Dealer's Cards:</h3>
+      <div class="flex gap-4">
+        <img
+          src="{{dealerimg}}"
+          alt="dealer card"
+          class="w-32 h-48 rounded-lg shadow-md border border-gray-300"
+        />
+        {% if end %} {% for x in dealer_imgs %}
+        <img
+          src="{{dealer_imgs[x]}}"
+          alt="dealer card"
+          class="w-32 h-48 rounded-lg shadow-md border border-gray-300"
+        />
+        {% endfor %} {% else %} {% for x in dealer_imgs %}
+        <img
+          src="https://opengameart.org/sites/default/files/card%20back%20black.png"
+          width="130"
+          height="180"
+          alt="dealer card"
+          class="w-32 h-48 rounded-lg shadow-md border border-gray-300"
+        />
+        {% endfor %} {% endif %}
+      </div>
+    </div>
 
-        <div>
-            <p>Dealer's Cards:</p>
-            <img src="{{dealerimg}}" alt="dealer card">
-            {% if end %}
-                {% for x in dealer_imgs %}
-                    <img src="{{dealer_imgs[x]}}" alt="dealer card">
-                {% endfor %}
-            {% else %}
-                {% for x in dealer_imgs %}
-                    <img src="https://opengameart.org/sites/default/files/card%20back%20black.png" width = 235 height = 440 alt="dealer card">
-                {% endfor %}
-            {% endif %}    
-        </div>
+    <!-- Game Actions -->
+    {% if end is false and yourturn %}
+    <form method="POST" class="flex gap-4">
+      <button
+        name="action"
+        value="hit"
+        class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg font-medium text-lg transition duration-200"
+      >
+        Hit
+      </button>
+      <button
+        name="action"
+        value="stay"
+        class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg font-medium text-lg transition duration-200"
+      >
+        Stay
+      </button>
+    </form>
+    {% elif end is false and yourturn is false %}
+    <form method="POST">
+      <button
+        name="action"
+        value="bot"
+        class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg font-medium text-lg transition duration-200"
+      >
+        Click for dealer's turn
+      </button>
+    </form>
+    {% endif %}
 
-        {% if end is false and yourturn %}
-        <form method="POST">
-            <button name="action" value="hit">Hit</button>
-            <button name="action" value="stay">Stay</button>
-        </form>
-        {% elif end is false and yourturn is false%}
-        <form method="POST">
-            <button name="action" value="bot">click for dealer's turn</button>
-        </form>
-        {% endif %}
-
-        {% if end is true %}
-            {% if bust is false and win is true %}
-                <p>You WIN!!! :D</p>
-            {% endif %}
-            {% if bust is true and win is true %}
-                <p>You WIN!! Dealer BUSTED</p>
-            {% endif %}
-            {% if bust is false and win is false %}
-                <p>You LOST!! D:</p>
-            {% endif %}
-            {% if bust is true and win is false %}
-                <p>You LOST!! BUSTED</p>
-            {% endif %}
-        {% endif %}
-    </body>
+    <!-- Game Results -->
+    {% if end is true %}
+    <div class="mt-8 text-center">
+      {% if bust is false and win is true %}
+      <p class="text-3xl font-bold text-green-600">You WIN!!! :D</p>
+      {% endif %} {% if bust is true and win is true %}
+      <p class="text-3xl font-bold text-green-600">You WIN!! Dealer BUSTED</p>
+      {% endif %} {% if bust is false and win is false %}
+      <p class="text-3xl font-bold text-red-500">You LOST!! D:</p>
+      {% endif %} {% if bust is true and win is false %}
+      <p class="text-3xl font-bold text-red-500">You LOST!! BUSTED</p>
+      {% endif %}
+    </div>
+    {% endif %}
+  </body>
 </html>
