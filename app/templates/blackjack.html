@@ -5,9 +5,9 @@
         <script src = "https://cdn.tailwindcss.com"> </script>
         <title> Blackjack </title>
     </head>
-.
+
     <body>
-        <h1>{{ user }} you are playing Blackjack</h1>
+        <h1>{{ user }} you are playing... Blackjack!</h1>
         <h2>Score: {{ userscore }}</h2>
 
         <div>
@@ -19,27 +19,38 @@
 
         <div>
             <p>Dealer's Cards:</p>
-            {% for x in dealer_imgs %}
-                <img src="{{dealer_imgs[x]}}" alt="dealer card">
-            {% endfor %}
+            <img src="{{dealerimg}}" alt="dealer card">
+            {% if end %}
+                {% for x in dealer_imgs %}
+                    <img src="{{dealer_imgs[x]}}" alt="dealer card">
+                {% endfor %}
+            {% else %}
+                {% for x in dealer_imgs %}
+                    <img src="https://opengameart.org/sites/default/files/card%20back%20black.png" width = 235 height = 440 alt="dealer card">
+                {% endfor %}
+            {% endif %}    
         </div>
 
-        {% if end is false %}
+        {% if end is false and yourturn %}
         <form method="POST">
             <button name="action" value="hit">Hit</button>
             <button name="action" value="stay">Stay</button>
+        </form>
+        {% elif end is false and yourturn is false%}
+        <form method="POST">
+            <button name="action" value="bot">click for dealer's turn</button>
         </form>
         {% endif %}
 
         {% if end is true %}
             {% if bust is false and win is true %}
-                <p>You WIN!! 21 :D</p>
+                <p>You WIN!!! :D</p>
             {% endif %}
             {% if bust is true and win is true %}
                 <p>You WIN!! Dealer BUSTED</p>
             {% endif %}
             {% if bust is false and win is false %}
-                <p>You LOST!! Dealer has blackjack!</p>
+                <p>You LOST!! D:</p>
             {% endif %}
             {% if bust is true and win is false %}
                 <p>You LOST!! BUSTED</p>

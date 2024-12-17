@@ -83,39 +83,61 @@ def homepage():
 
 @app.route("/blackjack", methods=["GET", "POST"])
 def blackjack_result():
-    if request.method == "GET":
-        blackjack.setup()
     # If POST request (hit or stay)
     action = request.form.get("action")  # 'hit' or 'stay'
     if action == "hit":
         blackjack.hit()
         return render_template('blackjack.html', 
+                               user = session["username"],
                                userscore = blackjack.user,
                                win = blackjack.win,
                                end = blackjack.end,
                                bust = blackjack.bust,
+                               yourturn = blackjack.yourturn,
                                user_imgs = blackjack.user_imgs,
+                               dealerimg = blackjack.dealerimg, 
                                dealer_imgs = blackjack.dealer_imgs)
     elif action == "stay":
         blackjack.stay()
         return render_template('blackjack.html', 
+                               user = session["username"],
                                userscore = blackjack.user,
                                win = blackjack.win,
                                end = blackjack.end,
                                bust = blackjack.bust,
+                               yourturn = blackjack.yourturn,
                                user_imgs = blackjack.user_imgs,
+                               dealerimg = blackjack.dealerimg,
                                dealer_imgs = blackjack.dealer_imgs)
+    elif action == "bot":
+        blackjack.bot()
+        return render_template('blackjack.html', 
+                               user = session["username"],
+                               userscore = blackjack.user,
+                               win = blackjack.win,
+                               end = blackjack.end,
+                               bust = blackjack.bust,
+                               yourturn = blackjack.yourturn,
+                               user_imgs = blackjack.user_imgs,
+                               dealerimg = blackjack.dealerimg,
+                               dealer_imgs = blackjack.dealer_imgs)
+    else:
+        blackjack.setup()
+
     if blackjack.end:
             if blackjack.win:
-                changeBalance(username, 20)  # Award +20 for winning
+                changeBalance(session["username"], 20)  # Award +20 for winning
             else:
-                changeBalance(username, -10)  # Deduct -10 for losing
+                changeBalance(session["username"], -10)  # Deduct -10 for losing
     return render_template('blackjack.html', 
+                               user = session["username"],
                                userscore= blackjack.user,
                                win = blackjack.win,
                                end = blackjack.end,
-                               user_imgs= blackjack.user_imgs,
-                               dealer_imgs= blackjack.dealer_imgs)
+                               yourturn = blackjack.yourturn,
+                               user_imgs = blackjack.user_imgs,
+                               dealerimg = blackjack.dealerimg, 
+                               dealer_imgs = blackjack.dealer_imgs)
 
 @app.route("/dice", methods=['GET', 'POST'])
 def dice():
