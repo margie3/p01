@@ -8,19 +8,20 @@
 .
     <body>
         <h1>{{ user }} you are playing Blackjack</h1>
-        <h2>Score: {{ user_score }}</h2>
-        <h2>Dealer's Score: {{ dealer_score }}</h2>
+        <h2>Score: {{ userscore }}</h2>
 
         <div>
             <p>User's Cards:</p>
-            <img src="{{ user_images[0] }}" alt="user card 1">
-            <img src="{{ user_images[1] }}" alt="user card 2">
+            {% for x in user_imgs %}
+                <img src="{{user_imgs[x]}}" alt="user card">
+            {% endfor %}
         </div>
 
         <div>
             <p>Dealer's Cards:</p>
-            <img src="{{ dealer_images[0] }}" alt="dealer card 1">
-            <img src="{{ dealer_images[1] }}" alt="dealer card 2">
+            {% for x in dealer_imgs %}
+                <img src="{{dealer_imgs[x]}}" alt="dealer card">
+            {% endfor %}
         </div>
 
         <form method="POST">
@@ -28,7 +29,7 @@
             <button name="action" value="stay">Stay</button>
         </form>
 
-        {% if win is not none %}
+        {% if end is true %}
             <p>You {{ 'win' if win else 'lose' }}!</p>
         {% endif %}
     </body>
