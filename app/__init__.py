@@ -119,10 +119,20 @@ def blackjack_result():
 
 @app.route("/dice", methods=['GET', 'POST'])
 def dice():
+        if dice.end:
+            if dice.win:
+                changeBalance(username, 20)  # Award +20 for winning
+            else:
+                changeBalance(username, -10)  # Deduct -10 for losing
     return render_template('dice.html')
 
 @app.route("/coin", methods=['GET', 'POST'])
 def coin():
+        if coin.end:
+            if coin.win:
+                changeBalance(username, 20)  # Award +20 for winning
+            else:
+                changeBalance(username, -10)  # Deduct -10 for losing
     return render_template('coin.html')
 
 
