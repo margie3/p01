@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Coin Flip</title>
+  </head>
+  <body class="bg-green-50 min-h-screen flex flex-col items-center">
+    <!-- Header -->
+    <h1 class="text-4xl font-bold text-green-600 mt-8 mb-4">
+        {{ user }} you are playing... Coin Flip!
+      </h1>
+      <h2 class="text-2xl text-gray-700 mb-8">Score: {{ userscore }}</h2>
+    <!-- Game Details -->
+    <div class="text-center">
+      <h2 class="text-2xl text-gray-700 mb-8">Flip the coin to test your luck!</h2>
+
+      <!-- Placeholder for Coin Result -->
+      {% if result %}
+        <p class="text-3xl font-semibold text-gray-700">The coin landed on: {{ result }}!</p>
+      {% endif %}
+    </div>
+
+    <!-- Buttons -->
+    <form method="POST" class="flex gap-4 mt-8">
+      <button
+        type="submit"
+        name="action"
+        value="flip"
+        class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg font-medium text-lg transition duration-200"
+      >
+        Flip Coin
+      </button>
+      <a
+        href="/homepage"
+        class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-6 rounded-lg font-medium text-lg transition duration-200"
+      >
+        Back to Home
+      </a>
+    </form>
+
+    <!-- Win/Loss Messages -->
+    {% if end %}
+      {% if win %}
+        <p class="text-3xl font-bold text-green-600 mt-8">You WIN!!! :D</p>
+      {% else %}
+        <p class="text-3xl font-bold text-red-500 mt-8">You LOST!! D:</p>
+      {% endif %}
+    {% endif %}
+  </body>
+</html>
