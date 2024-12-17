@@ -3,6 +3,8 @@ from flask import Flask, render_template, session, request, redirect, url_for
 from db import makeDb, addUser, getPass, changeBalance
 import key
 import blackjack
+import dice
+import coin
 
 makeDb()
 
@@ -71,7 +73,6 @@ def register():
             addUser(username, password)
             print(addUser)
             return redirect(url_for("login"))
-    
     return render_template("register.html")
 
 @app.route("/homepage", methods=['GET', 'POST'])
@@ -123,7 +124,6 @@ def blackjack_result():
                                dealer_imgs = blackjack.dealer_imgs)
     else:
         blackjack.setup()
-
     if blackjack.end:
             if blackjack.win:
                 changeBalance(session["username"], 20)  # Award +20 for winning
@@ -140,23 +140,31 @@ def blackjack_result():
                                dealer_imgs = blackjack.dealer_imgs)
 
 @app.route("/dice", methods=['GET', 'POST'])
-def dice():
-        if dice.end:
-            if dice.win:
-                changeBalance(username, 20)  # Award +20 for winning
-            else:
-                changeBalance(username, -10)  # Deduct -10 for losing
-    return render_template('dice.html')
+def dice_result():
+    if dice.end:
+        if dice.win:
+            user = session["username"]
+            changeBalance(user, 20)  # Award +20 for winning
+        else:
+            user = session["username"]
+            changeBalance(user, -10)  # Deduct -10 for losing
+    else:
+        if request.method == "POST":
+            guessnum = request.form.get("guessnum")
+            dice.guess(guessnum)
+            render_template("dice.html", end = dice.end, win = dice.win, total = dice.num)
+    return render_template('dice.html', end = dice.end, win = dice.win, total = dice.num)
 
 @app.route("/coin", methods=['GET', 'POST'])
 def coin():
-        if coin.end:
-            if coin.win:
-                changeBalance(username, 20)  # Award +20 for winning
-            else:
-                changeBalance(username, -10)  # Deduct -10 for losing
+    if coin.end:
+        if coin.win:
+            user = session["username"]
+            changeBalance(user, 20)  # Award +20 for winning
+        else:
+            user = session["username"]
+            changeBalance(user, -10)  # Deduct -10 for losing
     return render_template('coin.html')
-
 
 
 if __name__ == "__main__":

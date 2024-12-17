@@ -11,11 +11,9 @@
     <h1 class="text-4xl font-bold text-green-600 mt-8 mb-4">
         {{ user }} you are playing... Dice Roll!
       </h1>
-      <h2 class="text-2xl text-gray-700 mb-8">Score: {{ userscore }}</h2>
-
     <!-- Game Details -->
     <div class="text-center">
-      <h2 class="text-2xl text-gray-700 mb-8">Roll the dice to win!</h2>
+      <h2 class="text-2xl text-gray-700 mb-8">Guess the number to win! Sum of 2 six-faced die</h2>
       
       <!-- Placeholder for Dice Result -->
       {% if result %}
@@ -23,15 +21,31 @@
       {% endif %}
     </div>
 
+
+    <form>
+      <label
+          for="guess"
+          class="block text-sm font-medium text-gray-700"
+          >Guess:</label
+        >
+        <input
+          type="number"
+          id="guess"
+          name="guessnum"
+          required
+          class="w-full mt-1 p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:outline-none"
+        />
+    </form>
+
     <!-- Buttons -->
     <form method="POST" class="flex gap-4 mt-8">
       <button
         type="submit"
         name="action"
-        value="roll"
+        value="guess"
         class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg font-medium text-lg transition duration-200"
       >
-        Roll Dice
+        Guess!
       </button>
       <a
         href="/homepage"
@@ -43,6 +57,7 @@
 
     <!-- Win/Loss Messages -->
     {% if end %}
+      <p class="text-3xl font-bold text-green-600 mt-8">This was the number: {{total}}</p>
       {% if win %}
         <p class="text-3xl font-bold text-green-600 mt-8">You WIN!!! :D</p>
       {% else %}
