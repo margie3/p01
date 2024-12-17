@@ -49,7 +49,7 @@ def login():
         if stored_password == password:
             session["username"] = username
             session["password"] = password
-            changeBalance(username, 10)
+            changeBalance(username, 50)
             return redirect(url_for("homepage"))
         else:
             return "Invalid username or password"
@@ -99,10 +99,11 @@ def blackjack_result():
 
     elif action == "stay":
         game_data = blackjack.stay()
-        return jsonify({"game_over": game_data["game_over"], 
-                        "win": game_data["win"], 
-                        "user_score": game_data["user_score"], 
-                        "dealer_score": game_data["dealer_score"]})
+        if game_data["game_over"]:
+            if game_data["win"]:
+                changeBalance(username, 20)  # Award +20 for winning
+            else:
+                changeBalance(username, -10)  # Deduct -10 for losing
 
     game_data = blackjack.setup()
     return render_template('blackjack.html',
